@@ -3,12 +3,12 @@
 I'm **NOT RESPONSIBLE** for any damage that may be caused to your device.
 
 ### Special Modes
+* **MASKROM Mode**: Allows us to flash the firmware
+* **Uboot**: One of the device's bootloaders. Handles pretty much the whole boot process.
+    * **LOADER Mode**: Allows us to flash the firmware, flash ANY partition and dump the firmware.
+    * **fastboot**: Useful to disable AVB and flash boot/recovery partitions. Can't flash super. The only way to access this mode is with `adb reboot-bootloader` or through the "Reboot to bootloader" option inside the recovery.
 * **Recovery**:
     * **fastbootd**: Useful to check whether Android Verified Boot (AVB) is unlocked and to flash boot/recovery/super (system, vendor, odm, product) partitions
-* **Uboot**: One of the device's bootloaders. Handles pretty much the whole boot process.
-    * **fastboot**: Useful to disable AVB and flash boot/recovery partitions. Can't flash super. The only way to access this mode is with `adb reboot-bootloader` or through the "Reboot to bootloader" option inside the recovery.
-   * **LOADER Mode**: Allows us to flash the firmware, flash ANY partition and dump the firmware.
-* **MASKROM Mode**: Another special Rockchip mode. This mode only allows us to flash the firmware, but it'll be our best friend in a worst case scenario.
 
 ### Key combinations
 With the tablet OFF:
