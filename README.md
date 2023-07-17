@@ -46,7 +46,8 @@ Use the following versions. Newer or older ones may not work properly.
 
 ### Firmware
 Official firmware is available on [Google Drive](https://drive.google.com/file/d/12YQDCDvujEDlx5ZTQb0ChDukXJs9QSd6/view?usp=drive_link). \
-If you receive OTA updates, it's not suggested to update as a lot of users have bricked the tablets by doing so (probably a soft-brick).
+If you receive OTA updates, it's not suggested to update as a lot of users have bricked the tablets by doing so (probably a soft-brick). \
+Device is unlockable up to official 08/05/2023 build. No idea about newer builds.
 
 ### Dumping firmware
 ~~This is not possible in our device~~. Update: May be possible, more info below. \
