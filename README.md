@@ -37,7 +37,7 @@ With the tablet ON:
 Use the following versions. Newer or older ones may not work properly.
 * **DriverAssitant_v4.5**: Drivers required to detect the device while on LOADER/MASKROM mode.
 * **AndroidTool_Release_v2.71**: Can flash the firmware (LOADER/MASKROM mode), flash partitions (LOADER mode) and dump firmware (LOADER mode).
-* **FactoryTool_v1.45_bnd**: Can flash the FIRMWARE. I've never needed to use it.
+* **FactoryTool_v1.45_bnd**: Can flash the firmware. I've never needed to use it.
 * **SD_Firmware_Tool._v1.46**: Can flash the firmware to a SD Card.
 #### Other Tools
 * [imgRePackerRK](https://forum.xda-developers.com/t/tool-imgrepackerrk-rockchips-firmware-images-unpacker-packer.2257331/): Can be used to unpack/repack Rockchip firmware and partition images.
@@ -94,7 +94,7 @@ To re-enable AVB, `fastboot oem at-lock-vboot` may do the trick (untested).
         4. Reboot tablet. It should now show ENACOM logo.
         5. Try to boot into LOADER Mode. It will either boot into MASKROM or LOADER, it doesn't matter.
         6. Flash stock firmware normally
-        7. Tablet will reboot amd show ENACOM Logo. Disconnect SD Card and reboot.
+        7. Tablet will reboot and show ENACOM Logo. Disconnect SD Card and reboot.
         8. Tablet will boot into recovery, perform factory reset (wipe /data, /cache, etc.) and reboot into system.
 
 ### Hardware Info
