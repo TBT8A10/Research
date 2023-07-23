@@ -21,7 +21,8 @@ With the tablet ON:
 * **Shutdown**: Volume up + Power
 
 ### Boot Sequence
-[Wiki Page](https://opensource.rock-chips.com/wiki_Rockusb)|[Wiki Page](https://opensource.rock-chips.com/wiki_Boot_option)
+[Wiki Page](https://opensource.rock-chips.com/wiki_Rockusb)|[Wiki Page](https://opensource.rock-chips.com/wiki_Boot_option) \
+It's possible that the device can boot from an SD Card in [multiple stages](http://rockchip.wikidot.com/boot-sequence)
 1. BootROM (Hard-coded, can't be modified)
    * If no bootable firmware found, enters MASKROM mode.
    * According to Rockchip, it's possible to "short the eMMC clock to GND" to force the device into MASKROM.
