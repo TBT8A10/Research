@@ -31,7 +31,7 @@ It's possible that the device can boot from an SD Card in [multiple stages](http
    * Rockusb mode (LOADER mode) (NOT CONFIRMED)
 3. From experience, if something went wrong at this point (e.g. uboot is corrupted and can't be loaded) device will enter MASKROM mode.
 4. Uboot
-    * If the respective key combination are pressed, enters Uboot's LOADER mode or Android's recovery.
+    * If the respective key combination is pressed, enters Uboot's LOADER mode or Android's recovery.
     * If SD Card is detected and has a bootable firmware flashed, boots it.
         * I couldn't manage to actually boot something from an SD Card other than Uboot (and thus LOADER mode) which is enough to unbrick the device in some cases (more info below).
     * If the boot image is fine, boots it.
@@ -59,6 +59,7 @@ Device is unlockable up to official 08/05/2023 build. No idea about newer builds
 ### Dumping firmware
 ~~This is not possible in our device~~. Update: May be possible, more info below. \
 Only the first 32 MB of the EMMC can be read through LOADER Mode, either through AndroidTool or RedScorpio's rkdumper tool.
+Additionally, LOADER mode can't access anything before uboot, so it's not possible to dump the miniloader.
 Thus, only the following partitions can be dumped:
 * uboot
 * trust
