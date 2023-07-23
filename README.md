@@ -3,9 +3,9 @@
 I'm **NOT RESPONSIBLE** for any damage that may be caused to your device.
 
 ### Special Modes
-* **MASKROM Mode**: Allows us to flash the firmware
+* **MASKROM/BootROM Mode**: Allows us to flash the firmware.
+* **LOADER/Rockusb  Mode**: Allows us to flash the firmware, flash ANY partition and dump the firmware.
 * **Uboot**: One of the device's bootloaders. Handles pretty much the whole boot process.
-    * **LOADER Mode**: Allows us to flash the firmware, flash ANY partition and dump the firmware.
     * **fastboot**: Useful to disable AVB and flash boot/recovery partitions. Can't flash super. The only way to access this mode is with `adb reboot-bootloader` or through the "Reboot to bootloader" option inside the recovery.
 * **Recovery**:
     * **fastbootd**: Useful to check whether Android Verified Boot (AVB) is unlocked and to flash boot/recovery/super (system, vendor, odm, product) partitions
@@ -20,16 +20,22 @@ With the tablet ON:
     * An alternative is to use a toothpick to press the button under the power button.
 * **Shutdown**: Volume up + Power
 
-### Boot Process
-1. Rockchip miniloaders (?). Haven't researched this yet.
-2. If something goes wrong at this point (e.g. uboot can't be loaded), device will enter MASKROM mode.
-3. Uboot
-    * If the respective key combination are pressed, enters LOADER/Recovery mode.
+### Boot Sequence
+[Wiki Page](https://opensource.rock-chips.com/wiki_Rockusb)|[Wiki Page](https://opensource.rock-chips.com/wiki_Boot_option)
+1. BootROM (Hard-coded, can't be modified)
+   * If no bootable firmware found, enters MASKROM mode.
+   * According to Rockchip, it's possible to "short the eMMC clock to GND" to force the device into MASKROM.
+2. miniloader/idbloader (MiniLoaderAll.bin in firmware)
+   * "Usbplug" Mode (similar to MASKROM?) (rk3368_usbplug_v2.6 binary inside MiniLoaderAll.bin)
+   * Rockusb mode (LOADER mode) (NOT CONFIRMED)
+3. From experience, if something went wrong at this point (e.g. uboot is corrupted and can't be loaded) device will enter MASKROM mode.
+4. Uboot
+    * If the respective key combination are pressed, enters Uboot's LOADER mode or Android's recovery.
     * If SD Card is detected and has a bootable firmware flashed, boots it.
         * I couldn't manage to actually boot something from an SD Card other than Uboot (and thus LOADER mode) which is enough to unbrick the device in some cases (more info below).
     * If the boot image is fine, boots it.
-    * If there's a bootable USB device connected, boots it (Not tested)
-4. Linux Kernel (boot or recovery)
+    * If there's a bootable USB device connected, boots it (Untested)
+5. Linux Kernel (boot or recovery)
     * Displays the ENACOM logo
 
 ### Tools
