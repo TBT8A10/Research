@@ -57,9 +57,8 @@ If you receive OTA updates, it's not suggested to update as a lot of users have 
 Device is unlockable up to official 08/05/2023 build. No idea about newer builds.
 
 ### Dumping firmware
-~~This is not possible in our device~~. Update: May be possible, more info below. \
-Only the first 32 MB of the EMMC can be read through LOADER Mode, either through AndroidTool or RedScorpio's rkdumper tool.
-Additionally, LOADER mode can't access anything before uboot, so it's not possible to dump the miniloader.
+Out of the box, only the first 32 MB of the EMMC can be read through LOADER Mode either through AndroidTool or RedScorpio's rkdumper tool.
+Additionally, LOADER mode can't access anything before uboot, so we can't dump the miniloader. \
 Thus, only the following partitions can be dumped:
 * uboot
 * trust
@@ -69,7 +68,7 @@ Thus, only the following partitions can be dumped:
 * vbmeta
 * boot (just a few bytes)
 
-~~The only way to dump firmware is to unlock bootloader, obtain root, and use adbDumper.~~. \
+~~The only way to dump the full firmware is to root and use adbDumper.~~. \
 **Update:** Dumping the whole firmware through LOADER mode may be possible [doing this](https://forum.xda-developers.com/t/tool-rkdumper-utility-for-backup-firmware-of-rockchips-devices.2915363/post-88697849).
 
 ### Unlock bootloader
