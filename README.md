@@ -28,7 +28,6 @@ It's possible that the device can boot from an SD Card in [multiple stages](http
    * According to Rockchip, it's possible to "short the eMMC clock to GND" to force the device into MASKROM.
 2. **miniloader**/idbloader (MiniLoaderAll.bin in firmware)
    * "Usbplug" Mode (similar to MASKROM?) (rk3368_usbplug_v2.6 binary inside MiniLoaderAll.bin)
-   * Rockusb mode (LOADER mode) (NOT CONFIRMED)
 3. From experience, if something went wrong at this point (e.g. uboot is corrupted and can't be loaded) device will enter MASKROM mode.
 4. **Uboot**
     * If the respective key combination is pressed, enters Uboot's LOADER mode or Android's recovery.
