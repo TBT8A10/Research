@@ -31,13 +31,13 @@ It's possible that the device can boot from an SD Card in [multiple stages](http
 3. From experience, if something went wrong at this point (e.g. uboot is corrupted and can't be loaded) device will enter MASKROM mode.
 4. **Uboot**
     * If the respective key combination is pressed, enters Uboot's LOADER mode or Android's recovery.
-    * Initializes some hardware like the display
     * Finds a bootable boot image in the following order:
         * SD Card
             * I couldn't manage to boot anything from an SD Card other than Uboot (and thus LOADER mode) which is enough to unbrick the device in some cases
         * eMMC
         * USB Device (untested)
     * Loads resources from boot image (DTB, logo...)
+    * Initializes some hardware like the display
     * Displays ENACOM logo
     * Boots the image
 5. **Linux Kernel** (boot or recovery)
