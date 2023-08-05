@@ -123,44 +123,4 @@ To re-enable AVB, `fastboot oem at-lock-vboot` may do the trick (untested).
         8. Tablet will boot into recovery, perform factory reset (wipe /data, /cache, etc.) and reboot into system.
 
 ### Hardware Info
-* **WiFi & Bluetooth Chip**: Unisoc uwe5623 (similar to uwe5621)
-    * Firmware: /vendor/etc/firmware/wcnmodem.bin
-    * Driver version: W21.10.3
-* **GPU**: PowerVR Rogue G6110 (BVNC 5.9.1.46)
-    * Blobs & their version
-        * /vendor/ Drivers:
-            * bin
-                * pvrsrvctl | UM P 5.38
-                * pvrtld | UM Q 5.58
-            * firmware
-                * rgx.fw.signed.5.9.1.46 | UM Q 5.56
-            * lib
-                * egl
-                    * egl.cfg
-                    * libEGL_POWERVR_ROGUE.so | UM Q 5.56
-                    * libGLESv1_CM_POWERVR_ROGUE.so | UM Q 5.56
-                    * libGLESv2_POWERVR_ROGUE.so | UM Q 5.58
-                * hw
-                    * gralloc.rk3368.so | UM Q 5.58
-                    * memtrack.rk3368.so | UM Q 5.56
-                    * vulkan.rk3368.so | Not implemented
-                * modules
-                    * pvrsrvkm.ko | UM Q 5.58
-                * libGLESv2_POWERVR_ROGUE.so | Not implemented
-                * libIMGegl.so | UM Q 5.58
-                * libLLVMIMG.so | 11/11/2016
-                * libPVROCL.so | UM Q 5.56
-                * libPVRScopeServices.so | UM Q 5.58
-                * libclangIMG.so | 11/11/2016
-                * libcreatesurface.so | UM N5.10
-                * libglslcompiler.so | UM Q 5.56
-                * liboclcompiler.so | UM N5.10
-                * libpvrANDROID_WSEGL.so | UM Q 5.56
-                * libsrv_init.so | Not implemented
-                * libsrv_um.so | UM Q 5.58
-                * libufwriter.so | UM Q 5.56
-                * libusc.so | UM Q 5.56
-            * lib64
-                * Not implemented
-            * etc
-                * powervr.ini
+Information of hardware and blobs/drivers can be found on the [vendor repo](https://github.com/TBT8A10/android_vendor_incar_tbt8a10/tree/main)
