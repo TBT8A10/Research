@@ -15,14 +15,13 @@ Information about the hardware and blobs/drivers can be found on the [vendor rep
     * **fastbootd**: Useful to check whether Android Verified Boot (AVB) is unlocked and to flash boot/recovery/super (system, vendor, odm, product) partitions
 
 ### Key combinations
-With the tablet OFF:
-* **Enter Loader Mode**: Hold volume Up/Down and connect USB cable
-* **Enter Recovery**: Hold Volume Up/Down + Power
-
-With the tablet ON:
-* **Reboot**: Hold either Volume down + Power or just the power button
-    * An alternative is to use a toothpick to press the button under the power button.
-* **Shutdown**: Hold Volume up + Power
+* With the tablet OFF:
+    * **Enter Loader Mode**: Hold volume Up/Down and connect USB cable
+    * **Enter Recovery**: Hold Volume Up/Down + Power
+* With the tablet ON:
+    * **Reboot**: Hold either Volume down + Power or just the power button
+        * An alternative is to use a toothpick to press the button under the power button.
+    * **Shutdown**: Hold Volume up + Power
 
 ### Boot Sequence
 [Wiki Page](https://opensource.rock-chips.com/wiki_Rockusb)|[Wiki Page](https://opensource.rock-chips.com/wiki_Boot_option) \
@@ -50,9 +49,9 @@ It's possible that the device can boot from an SD Card in [multiple stages](http
 #### Rockchip Tools
 Use the following versions unless specified otherwise. Newer or older ones may not work properly.
 * **DriverAssitant_v4.5**: Drivers required to detect the device while on LOADER/MASKROM mode.
-* **AndroidTool_Release_v2.71**: Flash firmware (LOADER/MASKROM mode), flash partitions (LOADER mode) and dump firmware (LOADER mode).
-* **FactoryTool_v1.45_bnd**: Flash firmware. I've never needed to use it.
-* **SD_Firmware_Tool._v1.46**: Flash firmware to an SD Card.
+* **AndroidTool_Release_v2.71** (aka RKDevTool): Can flash firmware (LOADER/MASKROM mode), flash partitions (LOADER mode) and dump firmware (LOADER mode).
+* **FactoryTool_v1.45_bnd**: Can flash firmware. I've never needed to use it.
+* **SD_Firmware_Tool._v1.46**: Can flash firmware to an SD Card.
 #### Other Tools
 * [imgRePackerRK](https://forum.xda-developers.com/t/tool-imgrepackerrk-rockchips-firmware-images-unpacker-packer.2257331/): Unpack/repack Rockchip firmware and partition images.
 * [rkDumper](https://forum.xda-developers.com/t/tool-rkdumper-utility-for-backup-firmware-of-rockchips-devices.2915363/): Dump firmware through LOADER mode
@@ -76,11 +75,11 @@ Thus, only the following partitions can be dumped:
 * vbmeta (start=57344 count=2048)
 
 However, we can patch uboot to allow us to dump up to 4 GB of the eMMC:
-1. Grab uboot.img from firmware or dump uboot from device
-2. Unpack uboot.img with imgRePackerRK
-3. Open uboot.bin with an hex editor and search for "81 00 01 8B 24 00 02 8B 9F 40 40 F1 49 01 00 54"
-4. Replace "40 40" with "00 60" and save it
-5. Repack uboot.img & flash it
+1. Grab `uboot.img` from firmware or dump uboot from device
+2. Unpack `uboot.img` with imgRePackerRK
+3. Open `uboot.bin` with an hex editor and search for `81 00 01 8B 24 00 02 8B 9F 40 40 F1 49 01 00 54`
+4. Replace `40 40` with `00 60` and save it
+5. Repack `uboot.img` & flash it
 
 To dump, use **AndroidTool_Release_v2.38** as newer versions don't allow to dump after 32 MB.
 Now we can dump these partitions in addition to the previous ones:
@@ -143,7 +142,7 @@ Additionally, it contains a "second" file (unpack with [AIK](https://forum.xda-d
 I've extracted the DTS from the DTB and cleaned it using my [Python script](https://github.com/TBM13/dts_cleaner) to make it more readable. It's [available here](./Resources/stock_dts_cleaned.txt).
 
 ### Building TWRP
-I managed to build TWRP using Rockchip's device tree (had to make a lot of modifications and quick hacks) and the stock prebuilt kernel. It loads enough to make ADB work but the recovery itself crashes due to some graphic-related errors.\
+I managed to build TWRP using Rockchip's device tree (had to make a lot of modifications and quick hacks) and the stock prebuilt kernel. It loads enough to make ADB work but the recovery itself crashes due to some graphic-related errors.
 <details>
 <summary>View log</summary>
 
@@ -188,9 +187,9 @@ This should be possible using Rockchip's device trees. However, the tablet suppo
 ### Flashing a GSI
 The kernel is built for arm64, but the vendor uses 32-bit binaries. Thus, only `arm32_binder64` variants of GSIs will work. I recommend to try [TrebleDroid](https://github.com/TrebleDroid/treble_experimentations/releases) or [phhusson's GSIs](https://github.com/phhusson/treble_experimentations) first.
 
-#### Known issues on TrebleDroid/PHH and TrebleDroid/PHH-based GSIs:
+#### Known issues on TrebleDroid/PHH or GSIs based on them:
 * Boot animation doesn't work
-* WiFi may not work on the first boot. If that's the case, try rebooting a few times and turning WiFi on/off
-* Android 12 or higher don't boot due to issues with the GPU Driver. This can be fixed by updating them (more info soon).
+* WiFi may not work on the first boot. If that's the case, try rebooting a few times and turning it on and off.
+* Android 12 or higher doesn't boot due to issues with the GPU Driver. This can be fixed by updating them (more info soon).
 * HDMI probably doesn't work (never tested it)
 * Performance is terrible. The UI is very laggy and unresponsive. The stock ROM also suffers from this but it's less noticeable there.
