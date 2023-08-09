@@ -180,7 +180,7 @@ libc: Unable to set property "ro.twrp.version" to "3.7.0_11-0": error code: 0xb
 
 If those issues can't be fixed, an alternative could be to disable the UI and control it through ADB.
 
-Meanwhile, I made some modifications to the stock recovery to make it more comfortable. Will try to upload it soon.
+Meanwhile, I made some modifications to the stock recovery to make it more comfortable. More information on the [recovery repo](https://github.com/TBT8A10/recovery).
 
 ### Building AOSP
 This should be possible using Rockchip's device trees. However, the tablet supports Project Treble and GSIs work fine.
