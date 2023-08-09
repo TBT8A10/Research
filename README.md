@@ -2,6 +2,10 @@
 **Disclaimer**: This document is not a guide of any kind. It's just a collection of unsorted personal notes I made while researching this tablet. \
 I'm **NOT RESPONSIBLE** for any damage that may be caused to your device.
 
+### Hardware Info
+The tablet was built by [Incartech](http://www.incartech.com.cn/). \
+Information about the hardware and blobs/drivers can be found on the [vendor repo](https://github.com/TBT8A10/android_vendor_incar_tbt8a10/tree/main).
+
 ### Special Modes
 * **MASKROM/BootROM Mode**: Allows us to flash the firmware.
 * **Uboot**: One of the bootloaders. Handles pretty much the whole boot process.
@@ -122,5 +126,71 @@ To re-enable AVB, `fastboot oem at-lock-vboot` may do the trick (untested).
         7. Tablet will reboot and show ENACOM Logo. Disconnect SD Card and reboot.
         8. Tablet will boot into recovery, perform factory reset (wipe /data, /cache, etc.) and reboot into system.
 
-### Hardware Info
-Information of hardware and blobs/drivers can be found on the [vendor repo](https://github.com/TBT8A10/android_vendor_incar_tbt8a10/tree/main)
+______
+## Customizing the tablet
+I asked Incar for the kernel and U-Boot's source code, but sadly they can't share it.
+
+### Building U-Boot
+Information available on the [U-Boot repo](https://github.com/TBT8A10/u-boot).
+
+### Building Android Kernel
+As of now, I wasn't able to boot a kernel built by me; it freezes at an early stage. This may not be feasible due to all the changes Incar has made to Rockchip's kernel.
+
+### DTB & Enacom Logo
+The boot image contains a DTB just like most Android devices. However, that one is not used. \
+Additionally, it contains a "second" file (unpack with [AIK](https://forum.xda-developers.com/t/tool-android-image-kitchen-unpack-repack-kernel-ramdisk-win-android-linux-mac.2073775/) and it will be inside the `split_img` folder) which can be unpacked/repacked with imgRePackerRK. Inside it is the real DTB and the ENACOM splash screen bitmap.
+
+I've extracted the DTS from the DTB and cleaned it using my [Python script](https://github.com/TBM13/dts_cleaner) to make it more readable. It's [available here](./Resources/stock_dts_cleaned.txt).
+
+### Building TWRP
+I managed to build TWRP using Rockchip's device tree (had to make a lot of modifications and quick hacks) and the stock prebuilt kernel. It loads enough to make ADB work but the recovery itself crashes due to some graphic-related errors.\
+<details>
+<summary>View log</summary>
+
+```
+Starting TWRP 3.7.0_11-0-063d211c on Sun Jan 29 23:41:48 2023
+ (pid 151)
+TW_NO_BATT_PERCENT := true
+TW_NO_USB_STORAGE := true
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+I:Found brightness file at '/sys/devices/platform/backlight/backlight/backlight/brightness'
+I:Got max brightness 255 from '/sys/devices/platform/backlight/backlight/backlight/max_brightness'
+I:TWFunc::Set_Brightness: Setting brightness control to 255
+I:TW_EXCLUDE_ENCRYPTED_BACKUPS := true
+I:LANG: en
+Starting the UI...
+setting DRM_FORMAT_RGBX8888 and GGL_PIXEL_FORMAT_RGBX_8888
+setting DRM_FORMAT_XBGR8888 and GGL_PIXEL_FORMAT_RGBA_8888
+mmap() failed: Invalid argument
+setting DRM_FORMAT_XBGR8888 and GGL_PIXEL_FORMAT_RGBA_8888
+mmap() failed: Invalid argument
+Forcing pixel format: RGB_565
+failed to put force_rgb_565 fb0 info: Invalid argument
+I:TWFunc::Set_Brightness: Setting brightness control to 255
+TW_SCREEN_BLANK_ON_BOOT := true
+I:Loading package: splash (/twres/splash.xml)
+I:Load XML directly
+I:PageManager::LoadFileToBuffer loading filename: '/twres/splash.xml' directly
+I:Checking resolution...
+libc: Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 151 (recovery), pid 151 (recovery)
+libc: Unable to set property "ro.twrp.boot" to "1": error code: 0xb
+libc: Unable to set property "ro.twrp.version" to "3.7.0_11-0": error code: 0xb
+```
+</details>
+
+If those issues can't be fixed, an alternative could be to disable the UI and control it through ADB.
+
+Meanwhile, I made some modifications to the stock recovery to make it more comfortable. Will try to upload it soon.
+
+### Building AOSP
+This should be possible using Rockchip's device trees. However, the tablet supports Project Treble and GSIs work fine.
+
+### Flashing a GSI
+The kernel is built for arm64, but the vendor uses 32-bit binaries. Thus, only `arm32_binder64` variants of GSIs will work. I recommend to try [TrebleDroid](https://github.com/TrebleDroid/treble_experimentations/releases) or [phhusson's GSIs](https://github.com/phhusson/treble_experimentations) first.
+
+#### Known issues on TrebleDroid/PHH and TrebleDroid/PHH-based GSIs:
+* Boot animation doesn't work
+* WiFi may not work on the first boot. If that's the case, try rebooting a few times and turning WiFi on/off
+* Android 12 or higher don't boot due to issues with the GPU Driver. This can be fixed by updating them (more info soon).
+* HDMI probably doesn't work (never tested it)
+* Performance is terrible. The UI is very laggy and unresponsive. The stock ROM also suffers from this but it's less noticeable there.
