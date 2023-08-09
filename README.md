@@ -50,6 +50,7 @@ It's possible that the device can boot from an SD Card in [multiple stages](http
 Use the following versions unless specified otherwise. Newer or older ones may not work properly.
 * **DriverAssitant_v4.5**: Drivers required to detect the device while on LOADER/MASKROM mode.
 * **AndroidTool_Release_v2.71** (aka RKDevTool): Can flash firmware (LOADER/MASKROM mode), flash partitions (LOADER mode) and dump firmware (LOADER mode).
+    * **WARNING:** Before flashing partitions, load the [partition table of this device](./Resources/androidtool-partition_table) (right click -> `Load Config`) or create it yourself by using the output of `Dev Partition`.
 * **FactoryTool_v1.45_bnd**: Can flash firmware. I've never needed to use it.
 * **SD_Firmware_Tool._v1.46**: Can flash firmware to an SD Card.
 #### Other Tools
@@ -108,7 +109,7 @@ To re-enable AVB, `fastboot oem at-lock-vboot` may do the trick (untested).
 1. Boot into LOADER mode.
 2. Open AndroidTool
 3. Two options:
-    * Load our device's partition table (or create it manually by pressing "Dev partition" & analyzing its output) & flash the corrupted partition
+    * Flash the corrupted partition
     * Reflash stock firmware (Upgrade firmware tab)
 
 **Hard-brick**: Can't get into LOADER mode
