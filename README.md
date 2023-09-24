@@ -189,8 +189,10 @@ This should be possible using Rockchip's device trees. However, the tablet suppo
 The kernel is built for arm64, but the vendor uses 32-bit binaries. Thus, only `arm32_binder64` variants of GSIs will work. I recommend to try [TrebleDroid](https://github.com/TrebleDroid/treble_experimentations/releases) or [phhusson's GSIs](https://github.com/phhusson/treble_experimentations) first.
 
 #### Known issues on TrebleDroid/PHH or GSIs based on them:
+* Android 12 or higher doesn't boot due to issues with the GPU Driver and SkiaGL
+    * This can be easily fixed by updating the GPU driver blobs, particularly two of them (the other ones are already up to date).
+    * You can find [them here](./Resources/android12-skiagl-fix/). Their version is `UM S 5.59` and were grabbed from [this repo](https://github.com/khadas/android_vendor_rockchip_common/tree/khadas-edge2-android12/gpu/libG6110/G6110_64/vendor/lib/hw).
 * Boot animation doesn't work
 * WiFi may not work on the first boot. If that's the case, try rebooting a few times and turning it on and off.
-* Android 12 or higher doesn't boot due to issues with the GPU Driver. This can be fixed by updating them (more info soon).
 * HDMI probably doesn't work (never tested it)
 * Performance is terrible. The UI is very laggy and unresponsive. The stock ROM also suffers from this but it's less noticeable there.
