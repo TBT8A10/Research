@@ -59,10 +59,11 @@ Use the following versions unless specified otherwise. Newer or older ones may n
 * [adbDumper](https://forum.xda-developers.com/t/tool-adbdumper-utility-for-backup-firmware-of-android-devices.4525721/): Dump firmware through ADB (root required)
 
 ### Firmware
-Official firmware is available on [Google Drive](https://drive.google.com/file/d/12YQDCDvujEDlx5ZTQb0ChDukXJs9QSd6/view?usp=drive_link). \
-If you receive OTA updates, it's not suggested to update as a lot of users have bricked their tablets by doing so (probably a soft-brick).
+Official firmware is available on [Google Drive](https://drive.google.com/file/d/12YQDCDvujEDlx5ZTQb0ChDukXJs9QSd6/view?usp=drive_link) (September 13, 2021 build). \
+If you receive OTA updates, be careful as a lot of users have reported their tablets were bricked after updating (probably a soft-brick). \
+For information on how to search for updates and download them, go to [this repo](https://github.com/TBT8A10/adups-fota).
 
-Device is unlockable up to official 08/05/2023 build. No idea about newer builds.
+Device is unlockable up to official May 8, 2023 build. No idea about newer builds.
 
 ### Dump firmware
 Out of the box, only the first 32 MB of the eMMC can be read through LOADER Mode using either AndroidTool or rkdumper.
