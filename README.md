@@ -1,10 +1,15 @@
-# ENACOM TBT8A10 Tablet Research
+# ENACOM Tablet Research
 **Disclaimer**: This document is not a guide of any kind. It's just a collection of unsorted personal notes I made while researching this tablet. \
 I'm **NOT RESPONSIBLE** for any damage that may be caused to your device.
 
 ### Hardware Info
-The tablet was built by [Incartech](http://www.incartech.com.cn/). \
-Information about the hardware and blobs/drivers can be found on the [vendor repo](https://github.com/TBT8A10/android_vendor_incar_tbt8a10/tree/main).
+As far as I know, there are two rk3368 tablets distributed by ENACOM:
+* **TBT8A10** (also known as i-Buddie TG08RK1)
+* **M1045W**
+
+Both are built by [Incartech](http://www.incartech.com.cn/) and are pretty much the same, except for some differences (LCD, camera...). This research is mainly focused on my tablet (TBT8A10) but most of the information should be applicable to the other one too.
+
+Hardware and blobs/drivers information can be found on the [TBT8A10 branch](https://github.com/TBT8A10/vendor/tree/tbt8a10) and [M1045W branch](https://github.com/TBT8A10/vendor/tree/m1045w) of the vendor repo.
 
 ### Special Modes
 * **MASKROM/BootROM Mode**: Allows us to flash the firmware.
@@ -59,11 +64,9 @@ Use the following versions unless specified otherwise. Newer or older ones may n
 * [adbDumper](https://forum.xda-developers.com/t/tool-adbdumper-utility-for-backup-firmware-of-android-devices.4525721/): Dump firmware through ADB (root required)
 
 ### Firmware
-Official firmware is available on [Google Drive](https://drive.google.com/file/d/12YQDCDvujEDlx5ZTQb0ChDukXJs9QSd6/view?usp=drive_link) (September 13, 2021 build). \
-If you receive OTA updates, be careful as a lot of users have reported their tablets were bricked after updating (probably a soft-brick). \
-For information on how to search for updates and download them, go to [this repo](https://github.com/TBT8A10/adups-fota).
+Official TBT8A10 firmware is available on [Google Drive](https://drive.google.com/file/d/12YQDCDvujEDlx5ZTQb0ChDukXJs9QSd6/view?usp=drive_link) (September 13, 2021 build).
 
-Device is unlockable up to official May 8, 2023 build. No idea about newer builds.
+For information on how to search for OTA updates and download them, go to [this repo](https://github.com/TBT8A10/adups-fota).
 
 ### Dump firmware
 Out of the box, only the first 32 MB of the eMMC can be read through LOADER Mode using either AndroidTool or rkdumper.
@@ -141,7 +144,7 @@ As of now, I wasn't able to boot a kernel built by me; it freezes at an early st
 The boot image contains a DTB just like most Android devices. However, that one is not used. \
 Additionally, it contains a "second" file (unpack with [AIK](https://forum.xda-developers.com/t/tool-android-image-kitchen-unpack-repack-kernel-ramdisk-win-android-linux-mac.2073775/) and it will be inside the `split_img` folder) which can be unpacked/repacked with imgRePackerRK. Inside it is the real DTB and the ENACOM splash screen bitmap.
 
-I've extracted the DTS from the DTB and cleaned it using my [Python script](https://github.com/TBM13/dts_cleaner) to make it more readable. It's [available here](./Resources/stock_dts_cleaned.txt).
+I've extracted the DTS from both devices and cleaned it using my [Python script](https://github.com/TBM13/dts_cleaner) to make it more readable. They are available on the [resources folder](./Resources/).
 
 ### Building TWRP
 I managed to build TWRP using Rockchip's device tree (had to make a lot of modifications and quick hacks) and the stock prebuilt kernel. It loads enough to make ADB work but the recovery itself crashes due to some graphic-related errors.
@@ -193,6 +196,7 @@ The kernel is built for arm64, but the vendor uses 32-bit binaries. Thus, only `
 * Android 12 or higher doesn't boot due to issues with the GPU Driver and SkiaGL
     * This can be easily fixed by updating the GPU driver blobs, particularly two of them (the other ones are already up to date).
     * You can find [them here](./Resources/android12-skiagl-fix/). Their version is `UM S 5.59` and were grabbed from [this repo](https://github.com/khadas/android_vendor_rockchip_common/tree/khadas-edge2-android12/gpu/libG6110/G6110_64/vendor/lib/hw).
+* Headphone jack doesn't work properly on old PHH GSIs. This is fixed on TrebleDroid 13.
 * Boot animation doesn't work
 * WiFi may not work on the first boot. If that's the case, try rebooting a few times and turning it on and off.
 * HDMI probably doesn't work (never tested it)
