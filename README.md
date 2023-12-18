@@ -1,6 +1,7 @@
 # ENACOM Tablet Research
-**Disclaimer**: This document is not a guide of any kind. It's just a collection of unsorted personal notes I made while researching this tablet. \
-I'm **NOT RESPONSIBLE** for any damage that may be caused to your device.
+> [!CAUTION]
+> This document is not a guide of any kind. It's just a collection of personal notes I made while researching this tablet. \
+> I'm **NOT RESPONSIBLE** for any damage that may be caused to your device.
 
 ### Hardware Info
 As far as I know, there are two rk3368 tablets distributed by ENACOM:
@@ -15,9 +16,9 @@ Hardware and blobs/drivers information can be found on the [TBT8A10 branch](http
 * **MASKROM/BootROM Mode**: Allows us to flash the firmware.
 * **Uboot**: One of the bootloaders. Handles pretty much the whole boot process.
     * **LOADER/Rockusb  Mode**: Allows us to flash partitions, firmware and dump it.
-    * **fastboot**: Useful to disable AVB and flash boot/recovery partitions. Can't flash super. The only way to access this mode is with `adb reboot-bootloader` or through the "Reboot to bootloader" option inside recovery.
+    * **fastboot**: Useful to disable Android Verified Boot (AVB) and flash `boot`/`recovery`/`uboot` partitions. Can't flash `super`. The only way to access this mode is with `adb reboot-bootloader` or through the "Reboot to bootloader" option in recovery.
 * **Recovery**:
-    * **fastbootd**: Useful to check whether Android Verified Boot (AVB) is unlocked and to flash boot/recovery/super (system, vendor, odm, product) partitions
+    * **fastbootd**: Useful to check whether AVB is unlocked and flash `boot`/`recovery`/`super` (`system`, `vendor`, `odm`, `product`) partitions
 
 ### Key combinations
 * With the tablet OFF:
@@ -30,7 +31,7 @@ Hardware and blobs/drivers information can be found on the [TBT8A10 branch](http
 
 ### Boot Sequence
 [Wiki Page](https://opensource.rock-chips.com/wiki_Rockusb)|[Wiki Page](https://opensource.rock-chips.com/wiki_Boot_option) \
-It's possible that the device can boot from an SD Card in [multiple stages](http://rockchip.wikidot.com/boot-sequence)
+The device may be able to boot from an SD Card in [multiple stages](http://rockchip.wikidot.com/boot-sequence)
 1. **BootROM** (Hard-coded, can't be modified)
    * If no bootable firmware found, enters MASKROM mode.
    * According to Rockchip, it's possible to "short the eMMC clock to GND" to force the device into MASKROM.
@@ -48,14 +49,14 @@ It's possible that the device can boot from an SD Card in [multiple stages](http
     * Initializes some hardware like the display
     * Displays ENACOM logo
     * Boots the image
-5. **Linux Kernel** (boot or recovery)
+5. **Linux Kernel** (`boot` or `recovery`)
 
 ### Tools
 #### Rockchip Tools
 Use the following versions unless specified otherwise. Newer or older ones may not work properly.
-* **DriverAssitant_v4.5**: Drivers required to detect the device while on LOADER/MASKROM mode.
+* **DriverAssitant_v4.5**: Drivers required to interact with the device while on LOADER/MASKROM mode.
 * **AndroidTool_Release_v2.71** (aka RKDevTool): Can flash firmware (LOADER/MASKROM mode), flash partitions (LOADER mode) and dump firmware (LOADER mode).
-    * **WARNING:** Before flashing partitions, load the [partition table of this device](./Resources/androidtool-partition_table) (right click -> `Load Config`) or create it yourself by using the output of `Dev Partition`.
+    * **WARNING:** Before flashing partitions, load the [partition table of this device](./Resources/androidtool-partition_table) (right click -> `Load Config`) or create it yourself with the output of `Dev Partition`.
 * **FactoryTool_v1.45_bnd**: Can flash firmware. I've never needed to use it.
 * **SD_Firmware_Tool._v1.46**: Can flash firmware to an SD Card.
 #### Other Tools
@@ -69,8 +70,8 @@ Official TBT8A10 firmware is available on [Google Drive](https://drive.google.co
 For information on how to search for OTA updates and download them, go to [this repo](https://github.com/TBT8A10/adups-fota).
 
 ### Dump firmware
-Out of the box, only the first 32 MB of the eMMC can be read through LOADER Mode using either AndroidTool or rkdumper.
-Additionally, LOADER mode can't access anything before uboot, so we can't dump the miniloader. \
+Out of the box, only the first 32 MB of the eMMC can be read through LOADER Mode.
+Additionally, LOADER mode can't access anything before `uboot`, so we can't dump the miniloader. \
 Thus, only the following partitions can be dumped:
 * uboot (start=16384 count=8192)
 * trust (start=24576 count=8192)
@@ -79,15 +80,15 @@ Thus, only the following partitions can be dumped:
 * dtbo (start=49152 count=8192)
 * vbmeta (start=57344 count=2048)
 
-However, we can patch uboot to allow us to dump up to 4 GB of the eMMC:
-1. Grab `uboot.img` from firmware or dump uboot from device
+However, we can easily patch uboot to allow us to dump up to 4 GB of the eMMC:
+1. Grab `uboot.img` from firmware or dump uboot from device (recommended)
 2. Unpack `uboot.img` with imgRePackerRK
 3. Open `uboot.bin` with an hex editor and search for `81 00 01 8B 24 00 02 8B 9F 40 40 F1 49 01 00 54`
 4. Replace `40 40` with `00 60` and save it
 5. Repack `uboot.img` & flash it
 
 To dump, use **AndroidTool_Release_v2.38** as newer versions don't allow to dump after 32 MB.
-Now we can dump these partitions in addition to the previous ones:
+Now we can also dump these partitions:
 * boot (start=59392 count=65536)
 * security (start=124928 count=8192)
 * recovery (start=133120 count=196608)
@@ -98,7 +99,7 @@ Now we can dump these partitions in addition to the previous ones:
 * super (start=1379328 count=6373376)
 
 ### Unlock bootloader
-I'm 90% sure that the bootloader comes unlocked out of the box, but we can't flash boot and partitions inside the super partition unless we disable Android Verified Boot (AVB).
+I'm 90% sure the bootloader comes unlocked out of the box, but we can't flash `boot` and partitions inside `super` unless we disable AVB.
 1) Enable OEM Unlock in Android developer settings (probably not required, but do it just in case)
 2) Reboot into uboot's fastboot (`adb reboot-bootloader`)
 3) `fastboot oem at-unlock-vboot` (this will unlock verified boot, allowing to flash any recovery/boot/super (system, vendor, odm, product)
@@ -121,7 +122,7 @@ To re-enable AVB, `fastboot oem at-lock-vboot` may do the trick (untested).
     * Flash stock firmware with AndroidTool
 * Device doesn't show any signs of life:
     * Supposedly we can force MASKROM Mode by shorting the eMMC (I don't know how to do this)
-    * It's possible that Uboot or miniloader still works, and may be able to boot from an SD Card.
+    * It's possible that you may be able to boot from an SD Card.
         1. Connect SD Card to the computer & flash stock firmware to it using Rockchip's SD_Firmware_Tool
         3. Insert Card into Tablet
         4. Reboot tablet. It should now show ENACOM logo.
