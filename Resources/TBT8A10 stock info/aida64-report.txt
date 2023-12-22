@@ -1,0 +1,667 @@
+<<< Sistema >>>
+
+Fabricante: incar
+Modelo: TBT8A10
+Marca: i-Buddie
+Placa: rk30sdk
+Dispositivo: TG08RK1
+Hardware: rk30board
+Plataforma: rk3368
+Producto: TG08RK1
+RAM instalada: 2 GB
+Memoria total: 1956 MB
+Memoria disponible: 787 MB
+Espacio total de almacenamiento interno: 24,62 GB
+Espacio libre en almacenamiento interno: 23,23 GB
+Versión de Bluetooth: 4+
+Características del dispositivo: android.hardware.audio.output
+android.hardware.bluetooth
+android.hardware.bluetooth_le
+android.hardware.camera
+android.hardware.camera.any
+android.hardware.camera.front
+android.hardware.faketouch
+android.hardware.location
+android.hardware.location.network
+android.hardware.microphone
+android.hardware.ram.low
+android.hardware.screen.landscape
+android.hardware.screen.portrait
+android.hardware.sensor.accelerometer
+android.hardware.touchscreen
+android.hardware.usb.accessory
+android.hardware.usb.host
+android.hardware.wifi
+android.hardware.wifi.direct
+android.hardware.wifi.passpoint
+android.software.app_widgets
+android.software.autofill
+android.software.backup
+android.software.cant_save_state
+android.software.companion_device_setup
+android.software.connectionservice
+android.software.cts
+android.software.device_admin
+android.software.file_based_encryption
+android.software.home_screen
+android.software.input_methods
+android.software.ipsec_tunnels
+android.software.print
+android.software.secure_lock_screen
+android.software.securely_removes_users
+android.software.verified_boot
+android.software.webview
+com.google.android.feature.GMSEXPRESS_BUILD
+com.google.android.feature.WELLBEING
+
+<<< CPU >>>
+
+Arquitectura del núcleo: 8x ARM Cortex-A53 @ 1512 MHz
+Conjunto de instrucciones: ARMv8-A de 64 bits (Modo de 32 bits)
+Revisión de CPU: r0p3
+Núcleos de CPU: 8
+Rango de reloj de CPU: 216 - 1512 MHz
+Reloj del núcleo 1: 1008 MHz
+Reloj del núcleo 2: 1008 MHz
+Reloj del núcleo 3: 1008 MHz
+Reloj del núcleo 4: 1008 MHz
+Reloj del núcleo 5: 1416 MHz
+Reloj del núcleo 6: 1416 MHz
+Reloj del núcleo 7: 1416 MHz
+Reloj del núcleo 8: 1416 MHz
+Rector de escalonamiento: interactive
+ABI compatibles: armeabi-v7a, armeabi
+ABI compatibles de 32 bits: armeabi-v7a, armeabi
+AES: Compatible
+ASIMD/NEON: Compatible
+PMULL: Compatible
+SHA1: Compatible
+SHA2: Compatible
+
+<<< Pantalla >>>
+
+Resolución de pantalla: 800 × 1280
+Tamaño de pantalla: 108 mm × 173 mm
+Pantalla en diagonal: 8,03 pulgadas
+Densidad de píxeles: 188 ppp (tvdpi)
+xdpi / ydpi: 188 / 188 ppp
+Vendedor de GPU: Imagination Technologies
+Renderizador de GPU: PowerVR Rogue G6110
+Velocidad de actualización: 60 Hz
+Orientación predeterminada: Vertical
+Versión de OpenGL ES: 3.1
+Versión de la GPU: OpenGL ES 3.1 build 1.8@4634722 (1.8.RTM)
+Extensiones OpenGL ES: GL_EXT_debug_marker
+GL_EXT_blend_minmax
+GL_EXT_buffer_storage
+GL_EXT_clear_texture
+GL_EXT_color_buffer_float
+GL_EXT_conservative_depth
+GL_EXT_copy_image
+GL_EXT_discard_framebuffer
+GL_EXT_draw_buffers
+GL_EXT_draw_buffers_indexed
+GL_EXT_draw_elements_base_vertex
+GL_EXT_float_blend
+GL_EXT_gpu_shader5
+GL_EXT_multi_draw_arrays
+GL_EXT_multisampled_render_to_texture
+GL_EXT_occlusion_query_boolean
+GL_EXT_polygon_offset_clamp
+GL_EXT_pvrtc_sRGB
+GL_EXT_read_format_bgra
+GL_EXT_robustness
+GL_EXT_separate_shader_objects
+GL_EXT_shader_framebuffer_fetch
+GL_EXT_shader_group_vote
+GL_EXT_shader_io_blocks
+GL_EXT_shader_non_constant_global_initializers
+GL_EXT_shader_pixel_local_storage
+GL_EXT_shader_pixel_local_storage2
+GL_EXT_shader_texture_lod
+GL_EXT_shadow_samplers
+GL_EXT_sparse_texture
+GL_EXT_texture_border_clamp
+GL_EXT_texture_buffer
+GL_EXT_texture_cube_map_array
+GL_EXT_texture_filter_anisotropic
+GL_EXT_texture_format_BGRA8888
+GL_EXT_texture_rg
+GL_EXT_texture_sRGB_decode
+GL_EXT_texture_sRGB_R8
+GL_EXT_texture_sRGB_RG8
+GL_EXT_YUV_target
+GL_IMG_bindless_texture
+GL_IMG_framebuffer_downsample
+GL_IMG_multisampled_render_to_texture
+GL_IMG_program_binary
+GL_IMG_read_format
+GL_IMG_shader_binary
+GL_IMG_texture_compression_pvrtc
+GL_IMG_texture_compression_pvrtc2
+GL_IMG_texture_format_BGRA8888
+GL_IMG_texture_npot
+GL_KHR_blend_equation_advanced
+GL_KHR_blend_equation_advanced_coherent
+GL_KHR_debug
+GL_KHR_robustness
+GL_OES_compressed_ETC1_RGB8_texture
+GL_OES_depth24
+GL_OES_depth_texture
+GL_OES_draw_buffers_indexed
+GL_OES_draw_elements_base_vertex
+GL_OES_EGL_image
+GL_OES_EGL_image_external
+GL_OES_EGL_image_external_essl3
+GL_OES_EGL_sync
+GL_OES_element_index_uint
+GL_OES_fragment_precision_high
+GL_OES_get_program_binary
+GL_OES_gpu_shader5
+GL_OES_mapbuffer
+GL_OES_packed_depth_stencil
+GL_OES_required_internalformat
+GL_OES_rgb8_rgba8
+GL_OES_sample_shading
+GL_OES_sample_variables
+GL_OES_shader_image_atomic
+GL_OES_shader_io_blocks
+GL_OES_shader_multisample_interpolation
+GL_OES_standard_derivatives
+GL_OES_surfaceless_context
+GL_OES_texture_border_clamp
+GL_OES_texture_buffer
+GL_OES_texture_cube_map_array
+GL_OES_texture_float
+GL_OES_texture_half_float
+GL_OES_texture_npot
+GL_OES_texture_stencil8
+GL_OES_texture_storage_multisample_2d_array
+GL_OES_vertex_array_object
+
+<<< Red >>>
+
+<< Telefonía >>
+Tipo de teléfono: Ninguno
+
+<< Wi-Fi >>
+Estado: Activado
+SSID: <unknown ssid>
+BSSID: 02:00:00:00:00:00
+SSID oculto: Sí
+Dirección IPv4: 192.168.1.130
+Dirección IPv6: fe80::b2aa:c55d:be04:6ae6
+Intensidad de la señal: -67 dBm (Muy buena)
+Velocidad de enlace: 78 Mbps
+Frecuencia: 2422 MHz
+Puerta de enlace: 192.168.1.1
+Máscara de subred: 255.255.255.0
+DNS1: 8.8.8.8
+DNS2: 8.8.4.4
+Duración de concesión DHCP: 24 horas
+Banda de 5 GHz: Incompatible
+Wi-Fi Aware: Incompatible
+Wi-Fi Direct: Compatible
+
+<<< Batería >>>
+
+Fuente de energía: Batería
+Nivel: 48 %
+Estado: Descargando
+Salud: Buena
+Temperatura: 18,8°C
+Voltaje: 3,714 V
+Contador de cargas: 2 mAh
+Tasa de descarga: 861 mA
+Capacidad (informada por Android): 9000 mAh
+
+<<< Android >>>
+
+Versión de Android: 10 (Quince Tart)
+Nivel de API: 29
+Nivel de parche de seguridad de Android: 2020-05-05
+Dispositivo rooteado: No
+Android ID: 25e3364e0f4c0cec
+ID de compilación: QQ2A.200305.004.A1 release-keys
+Nombre en clave: REL
+Huella digital: i-Buddie/TG08RK1/TG08RK1:10/QQ2A.200305.004.A1/1594645620:user/release-keys
+ID: QQ2A.200305.004.A1
+Incremental: 1594645620
+Versión de Java Runtime: Android Runtime 0.9
+Versión de Java VM: ART 2.1.0
+Tamaño de heaps de Java VM: 128 MB
+Arquitectura del kernel: armv8l
+Versión del kernel: 4.19.111
+Etiquetas: release-keys
+Tipo: user
+Versión de Google Play Services: 22.48.14 (110300-493411920)
+Versión de Huawei Mobile Services: < No está presente >
+Versión de OpenSSL: OpenSSL 1.1.0 (compatible; BoringSSL)
+Versión de ZLib: 1.2.11
+Versión de ICU CLDR: 34.0
+Versión de librería ICU: 63.2
+Versión de ICU Unicode: 11.0
+Idioma de Android: español (España)
+Zona horaria configurada: hora estándar de Argentina (UTC-03:00)
+Tiempo de funcionamiento: 01:00:48
+
+<<< Dispositivos >>>
+
+<< Cámara trasera >>
+Resolución: 5,0 MP (2592 × 1944)
+Longitud de enfoque: 2,04 mm
+Modos de enfoque: infinity, auto, macro, continuous-video, continuous-picture
+Estabilización de video: Incompatible
+Zoom: Compatible
+Bloqueo de exposición automática: Incompatible
+Bloqueo de balance automático de blanco: Compatible
+Flash: Compatible
+
+<< Cámara delantera >>
+Resolución: 1,9 MP (1600 × 1200)
+Longitud de enfoque: 2,04 mm
+Modos de enfoque: fixed, infinity
+Estabilización de video: Incompatible
+Zoom: Compatible
+Bloqueo de exposición automática: Incompatible
+Bloqueo de balance automático de blanco: Incompatible
+Flash: Incompatible
+
+No se encontraron dispositivos USB.
+No se encontraron dispositivos OpenCL.
+No se encontraron dispositivos CUDA.
+No se encontraron dispositivos Vulkan.
+No se encontraron dispositivos PCI.
+
+<<< Térmico >>>
+
+Batería: 18,8°C
+
+<<< Sensores >>>
+
+Accelerometer sensor:
+
+<<< Aplicaciones >>>
+
+AIDA64: com.finalwire.aida64(v1.89)
+
+<<< Códecs >>>
+
+c2.android.aac.decoder: audio/mp4a-latm
+OMX.google.aac.decoder: audio/mp4a-latm
+c2.android.aac.encoder: audio/mp4a-latm
+OMX.google.aac.encoder: audio/mp4a-latm
+c2.android.amrnb.decoder: audio/3gpp
+OMX.google.amrnb.decoder: audio/3gpp
+c2.android.amrnb.encoder: audio/3gpp
+OMX.google.amrnb.encoder: audio/3gpp
+c2.android.amrwb.decoder: audio/amr-wb
+OMX.google.amrwb.decoder: audio/amr-wb
+c2.android.amrwb.encoder: audio/amr-wb
+OMX.google.amrwb.encoder: audio/amr-wb
+c2.android.flac.decoder: audio/flac
+OMX.google.flac.decoder: audio/flac
+c2.android.flac.encoder: audio/flac
+OMX.google.flac.encoder: audio/flac
+c2.android.g711.alaw.decoder: audio/g711-alaw
+OMX.google.g711.alaw.decoder: audio/g711-alaw
+c2.android.g711.mlaw.decoder: audio/g711-mlaw
+OMX.google.g711.mlaw.decoder: audio/g711-mlaw
+c2.android.mp3.decoder: audio/mpeg
+OMX.google.mp3.decoder: audio/mpeg
+c2.android.opus.decoder: audio/opus
+OMX.google.opus.decoder: audio/opus
+c2.android.opus.encoder: audio/opus
+c2.android.raw.decoder: audio/raw
+OMX.google.raw.decoder: audio/raw
+c2.android.vorbis.decoder: audio/vorbis
+OMX.google.vorbis.decoder: audio/vorbis
+OMX.rk.video_decoder.avc: video/avc
+OMX.rk.video_decoder.h263: video/3gpp
+OMX.rk.video_decoder.hevc: video/hevc
+OMX.rk.video_decoder.m2v: video/mpeg2
+OMX.rk.video_decoder.m4v: video/mp4v-es
+OMX.rk.video_decoder.vp8: video/x-vnd.on2.vp8
+OMX.rk.video_encoder.avc: video/avc
+c2.android.avc.decoder: video/avc
+OMX.google.h264.decoder: video/avc
+c2.android.avc.encoder: video/avc
+OMX.google.h264.encoder: video/avc
+c2.android.h263.decoder: video/3gpp
+OMX.google.h263.decoder: video/3gpp
+c2.android.h263.encoder: video/3gpp
+OMX.google.h263.encoder: video/3gpp
+c2.android.hevc.decoder: video/hevc
+OMX.google.hevc.decoder: video/hevc
+c2.android.mpeg4.decoder: video/mp4v-es
+OMX.google.mpeg4.decoder: video/mp4v-es
+c2.android.mpeg4.encoder: video/mp4v-es
+OMX.google.mpeg4.encoder: video/mp4v-es
+c2.android.vp8.decoder: video/x-vnd.on2.vp8
+OMX.google.vp8.decoder: video/x-vnd.on2.vp8
+c2.android.vp9.decoder: video/x-vnd.on2.vp9
+OMX.google.vp9.decoder: video/x-vnd.on2.vp9
+OMX.google.vp8.encoder: video/x-vnd.on2.vp8
+
+<<< Directorios >>>
+
+Datos: /data
+Raíz: /system
+Principal de Java: /system
+Contenido descargado o en caché: /data/cache
+
+<< Almacenamiento externo >>
+Almacenamiento externo principal: /storage/emulated/0
+Archivos externos #1: /storage/emulated/0/Android/data/com.finalwire.aida64/files
+Alarmas: /storage/emulated/0/Alarms
+DCIM: /storage/emulated/0/DCIM
+Descargas: /storage/emulated/0/Download
+Películas: /storage/emulated/0/Movies
+Música: /storage/emulated/0/Music
+Notificaciones: /storage/emulated/0/Notifications
+Fotos: /storage/emulated/0/Pictures
+Podcasts: /storage/emulated/0/Podcasts
+Tonos de timbre: /storage/emulated/0/Ringtones
+
+<< Puntos de montaje >>
+/: Dispositivo: /dev/block/dm-4
+Sistema de archivos: ext4
+Solo lectura
+/dev: Dispositivo: tmpfs
+Sistema de archivos: tmpfs
+Lectura y escritura
+/dev/pts: Dispositivo: devpts
+Sistema de archivos: devpts
+Lectura y escritura
+/dev/blkio: Dispositivo: none
+Sistema de archivos: cgroup
+Lectura y escritura
+/dev/cg2_bpf: Dispositivo: none
+Sistema de archivos: cgroup2
+Lectura y escritura
+/dev/cpuctl: Dispositivo: none
+Sistema de archivos: cgroup
+Lectura y escritura
+/dev/cpuset: Dispositivo: none
+Sistema de archivos: cgroup
+Lectura y escritura
+/dev/memcg: Dispositivo: none
+Sistema de archivos: cgroup
+Lectura y escritura
+/dev/stune: Dispositivo: none
+Sistema de archivos: cgroup
+Lectura y escritura
+/dev/usb-ffs/adb: Dispositivo: adb
+Sistema de archivos: functionfs
+Lectura y escritura
+/dev/usb-ffs/mtp: Dispositivo: mtp
+Sistema de archivos: functionfs
+Lectura y escritura
+/dev/usb-ffs/ptp: Dispositivo: ptp
+Sistema de archivos: functionfs
+Lectura y escritura
+/proc: Dispositivo: proc
+Sistema de archivos: proc
+Lectura y escritura
+/sys: Dispositivo: sysfs
+Sistema de archivos: sysfs
+Lectura y escritura
+/sys/fs/selinux: Dispositivo: selinuxfs
+Sistema de archivos: selinuxfs
+Lectura y escritura
+/sys/kernel/debug: Dispositivo: /sys/kernel/debug
+Sistema de archivos: debugfs
+Lectura y escritura
+/sys/kernel/debug/tracing: Dispositivo: /sys/kernel/debug/tracing
+Sistema de archivos: tracefs
+Lectura y escritura
+/sys/fs/bpf: Dispositivo: bpf
+Sistema de archivos: bpf
+Lectura y escritura
+/sys/fs/pstore: Dispositivo: pstore
+Sistema de archivos: pstore
+Lectura y escritura
+/mnt: Dispositivo: tmpfs
+Sistema de archivos: tmpfs
+Lectura y escritura
+/mnt/runtime/default/emulated: Dispositivo: /data/media
+Sistema de archivos: sdcardfs
+Lectura y escritura
+/mnt/runtime/read/emulated: Dispositivo: /data/media
+Sistema de archivos: sdcardfs
+Lectura y escritura
+/mnt/runtime/write/emulated: Dispositivo: /data/media
+Sistema de archivos: sdcardfs
+Lectura y escritura
+/mnt/runtime/full/emulated: Dispositivo: /data/media
+Sistema de archivos: sdcardfs
+Lectura y escritura
+/apex: Dispositivo: tmpfs
+Sistema de archivos: tmpfs
+Lectura y escritura
+/apex/com.android.media.swcodec@290000000: Dispositivo: /dev/block/loop2
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.media.swcodec: Dispositivo: /dev/block/loop2
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.resolv@290000000: Dispositivo: /dev/block/loop3
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.resolv: Dispositivo: /dev/block/loop3
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.conscrypt@290000000: Dispositivo: /dev/block/loop4
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.conscrypt: Dispositivo: /dev/block/loop4
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.runtime@1: Dispositivo: /dev/block/loop5
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.runtime: Dispositivo: /dev/block/loop5
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.media@290000000: Dispositivo: /dev/block/loop6
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.media: Dispositivo: /dev/block/loop6
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.apex.cts.shim@1: Dispositivo: /dev/block/loop7
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.apex.cts.shim: Dispositivo: /dev/block/loop7
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.tzdata@290000000: Dispositivo: /dev/block/loop8
+Sistema de archivos: ext4
+Solo lectura
+/apex/com.android.tzdata: Dispositivo: /dev/block/loop8
+Sistema de archivos: ext4
+Solo lectura
+/metadata: Dispositivo: /dev/block/by-name/metadata
+Sistema de archivos: ext4
+Lectura y escritura
+/vendor: Dispositivo: /dev/block/dm-5
+Sistema de archivos: ext4
+Solo lectura
+/odm: Dispositivo: /dev/block/dm-6
+Sistema de archivos: ext4
+Solo lectura
+/product: Dispositivo: /dev/block/dm-7
+Sistema de archivos: ext4
+Solo lectura
+/acct: Dispositivo: none
+Sistema de archivos: cgroup
+Lectura y escritura
+/config: Dispositivo: none
+Sistema de archivos: configfs
+Lectura y escritura
+/cache: Dispositivo: /dev/block/by-name/cache
+Sistema de archivos: ext4
+Lectura y escritura
+/data: Dispositivo: /dev/block/by-name/userdata
+Sistema de archivos: f2fs
+Lectura y escritura
+/storage: Dispositivo: tmpfs
+Sistema de archivos: tmpfs
+Lectura y escritura
+/storage/emulated: Dispositivo: /data/media
+Sistema de archivos: sdcardfs
+Lectura y escritura
+/storage/self: Dispositivo: tmpfs
+Sistema de archivos: tmpfs
+Lectura y escritura
+
+<<< Archivos del sistema >>>
+
+Info confiable: /proc/buddyinfo
+Propiedades de compilación: /system/build.prop
+Dispositivos de bloqueo y caracteres: /proc/devices
+Línea de comandos: /proc/cmdline
+Información de la CPU: /proc/cpuinfo
+Propiedades predeterminadas: /default.prop
+Dominios de ejecución: /proc/execdomains
+Sistemas de archivos: /proc/filesystems
+Dispositivos búferes de fotogramas: /proc/fb
+Hosts: /system/etc/hosts
+Interrupciones: /proc/interrupts
+Dispositivos de entrada: /proc/bus/input/devices
+Puertos de e/s: /proc/ioports
+Versión del kernel: /proc/version
+Promedio de carga: /proc/loadavg
+Archivos bloqueados: /proc/locks
+Información de memoria: /proc/meminfo
+Asignación de memoria: /proc/iomem
+Controladores misceláneos: /proc/misc
+Particiones: /proc/partitions
+Dispositivos PCI: /proc/bus/pci/devices
+Estadísticas: /proc/stat
+Espacios de intercambio: /proc/swaps
+
+<<< /proc/cpuinfo >>>
+
+processor : 0
+model name : ARMv8 Processor rev 3 (v8l)
+BogoMIPS : 48.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt lpae evtstrm aes pmull sha1 sha2 crc32
+CPU implementer : 0x41
+CPU architecture: 8
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 3
+
+processor : 1
+model name : ARMv8 Processor rev 3 (v8l)
+BogoMIPS : 48.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt lpae evtstrm aes pmull sha1 sha2 crc32
+CPU implementer : 0x41
+CPU architecture: 8
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 3
+
+processor : 2
+model name : ARMv8 Processor rev 3 (v8l)
+BogoMIPS : 48.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt lpae evtstrm aes pmull sha1 sha2 crc32
+CPU implementer : 0x41
+CPU architecture: 8
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 3
+
+processor : 3
+model name : ARMv8 Processor rev 3 (v8l)
+BogoMIPS : 48.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt lpae evtstrm aes pmull sha1 sha2 crc32
+CPU implementer : 0x41
+CPU architecture: 8
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 3
+
+processor : 4
+model name : ARMv8 Processor rev 3 (v8l)
+BogoMIPS : 48.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt lpae evtstrm aes pmull sha1 sha2 crc32
+CPU implementer : 0x41
+CPU architecture: 8
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 3
+
+processor : 5
+model name : ARMv8 Processor rev 3 (v8l)
+BogoMIPS : 48.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt lpae evtstrm aes pmull sha1 sha2 crc32
+CPU implementer : 0x41
+CPU architecture: 8
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 3
+
+processor : 6
+model name : ARMv8 Processor rev 3 (v8l)
+BogoMIPS : 48.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt lpae evtstrm aes pmull sha1 sha2 crc32
+CPU implementer : 0x41
+CPU architecture: 8
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 3
+
+processor : 7
+model name : ARMv8 Processor rev 3 (v8l)
+BogoMIPS : 48.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt lpae evtstrm aes pmull sha1 sha2 crc32
+CPU implementer : 0x41
+CPU architecture: 8
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 3
+
+Serial : 0000000000000000
+
+<<< /proc/meminfo >>>
+
+MemTotal:        2003632 kB
+MemFree:           48656 kB
+MemAvailable:     780144 kB
+Buffers:             720 kB
+Cached:           751188 kB
+SwapCached:         1712 kB
+Active:           755460 kB
+Inactive:         629200 kB
+Active(anon):     330156 kB
+Inactive(anon):   332000 kB
+Active(file):     425304 kB
+Inactive(file):   297200 kB
+Unevictable:        3552 kB
+Mlocked:            3552 kB
+SwapTotal:       1001812 kB
+SwapFree:         944468 kB
+Dirty:                72 kB
+Writeback:             0 kB
+AnonPages:        635268 kB
+Mapped:           506008 kB
+Shmem:             26396 kB
+KReclaimable:      69280 kB
+Slab:             146440 kB
+SReclaimable:      44476 kB
+SUnreclaim:       101964 kB
+KernelStack:       30100 kB
+PageTables:        39456 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2003628 kB
+Committed_AS:   25290424 kB
+VmallocTotal:   263061440 kB
+VmallocUsed:       41120 kB
+VmallocChunk:          0 kB
+Percpu:             1952 kB
+CmaTotal:          32768 kB
+CmaFree:               0 kB
