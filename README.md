@@ -54,11 +54,11 @@ The device may be able to boot from an SD Card in [multiple stages](http://rockc
 ### Tools
 #### Rockchip Tools
 Use the following versions unless specified otherwise. Newer or older ones may not work properly.
-* **DriverAssitant_v4.5**: Drivers required to interact with the device while on LOADER/MASKROM mode.
-* **AndroidTool_Release_v2.71** (aka RKDevTool): Can flash firmware (LOADER/MASKROM mode), flash partitions (LOADER mode) and dump firmware (LOADER mode).
-    * **WARNING:** Before flashing partitions, load the [partition table of this device](./Resources/androidtool-partition_table) (right click -> `Load Config`) or create it yourself with the output of `Dev Partition`.
-* **FactoryTool_v1.45_bnd**: Can flash firmware. I've never needed to use it.
-* **SD_Firmware_Tool._v1.46**: Can flash firmware to an SD Card.
+* **[DriverAssitant_v4.5](./Resources/Rockchip%20Tools/DriverAssitant_v4.5.7z)**: Drivers required to interact with the device while on LOADER/MASKROM mode.
+* **[AndroidTool_Release_v2.71](./Resources/Rockchip%20Tools/AndroidTool_Release_v2.71.7z)** (aka RKDevTool): Can flash firmware (LOADER/MASKROM mode), flash partitions (LOADER mode) and dump firmware (LOADER mode).
+    * **WARNING:** Before flashing partitions, load the [partition table of this device](./Resources/Rockchip%20Tools/androidtool-partition_table) (right click -> `Load Config`) or create it yourself with the output of `Dev Partition`.
+* **[FactoryTool_v1.45_bnd](./Resources/Rockchip%20Tools/FactoryTool_v1.45_bnd.7z)**: Can flash firmware. I've never needed to use it.
+* **[SD_Firmware_Tool._v1.46](./Resources/Rockchip%20Tools/SD_Firmware_Tool._v1.46.7z)**: Can flash firmware to an SD Card.
 #### Other Tools
 * [imgRePackerRK](https://forum.xda-developers.com/t/tool-imgrepackerrk-rockchips-firmware-images-unpacker-packer.2257331/): Unpack/repack Rockchip firmware and partition images.
 * [rkDumper](https://forum.xda-developers.com/t/tool-rkdumper-utility-for-backup-firmware-of-rockchips-devices.2915363/): Dump firmware through LOADER mode
@@ -87,7 +87,7 @@ However, we can easily patch uboot to allow us to dump up to 4 GB of the eMMC:
 4. Replace `40 40` with `00 60` and save it
 5. Repack `uboot.img` & flash it
 
-To dump, use **AndroidTool_Release_v2.38** as newer versions don't allow to dump after 32 MB.
+To dump, use **[AndroidTool_Release_v2.38](./Resources/Rockchip%20Tools/AndroidTool_Release_v2.38.7z)** as newer versions don't allow to dump after 32 MB.
 Now we can also dump these partitions:
 * boot (start=59392 count=65536)
 * security (start=124928 count=8192)
