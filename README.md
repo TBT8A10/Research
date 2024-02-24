@@ -201,5 +201,6 @@ The kernel is built for arm64, but the vendor uses 32-bit binaries. Thus, only `
 * Bluetooth doesn't work on TrebleDroid 14.
 * Boot animation doesn't work. This is fixed on TrebleDroid 14.
 * WiFi may not work on the first boot. If that's the case, try rebooting a few times and turning it on and off.
-* HDMI probably doesn't work (never tested it)
+* HDMI may not work (never tested it)
 * Performance is terrible. The UI is very laggy and unresponsive. The stock ROM also suffers from this but it's less noticeable there.
+   * It's suggested to disable animations in Developer Settings (set all animation scales to zero). Decreasing the DPI also seems to help
