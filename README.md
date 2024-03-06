@@ -30,16 +30,21 @@ Hardware and blobs/drivers information can be found on the [TBT8A10 branch](http
     * **Shutdown**: Hold Volume up + Power
 
 ### Boot Sequence
-[Wiki Page](https://opensource.rock-chips.com/wiki_Rockusb)|[Wiki Page](https://opensource.rock-chips.com/wiki_Boot_option) \
-The device may be able to boot from an SD Card in [multiple stages](http://rockchip.wikidot.com/boot-sequence)
+[Wiki Page](https://opensource.rock-chips.com/wiki_Rockusb)|[Wiki Page](https://opensource.rock-chips.com/wiki_Boot_option)
 1. **BootROM** (Hard-coded, can't be modified)
-   * If no bootable firmware found, enters MASKROM mode.
-   * According to Rockchip, it's possible to "short the eMMC clock to GND" to force the device into MASKROM.
-2. **miniloader**/idbloader (MiniLoaderAll.bin in firmware)
-   * "Usbplug" Mode (similar to MASKROM?) (rk3368_usbplug_v2.6 binary inside MiniLoaderAll.bin)
-3. From experience, if something went wrong at this point (e.g. uboot is corrupted and can't be loaded) device will enter MASKROM mode.
+   * Searches bootable firmware on the eMMC and maybe on the SD Card too.
+   * If none is found, enters **MASKROM mode**.
+      * According to Rockchip, we can force enter it by "shorting the eMMC clock to GND" (basically, prevent eMMC from being read so no firmware can be found and loaded)
+      * Some devices include two testpoints next to the eMMC that can be used to do this. I haven't dissasembled mine so no idea if we have them
+3. **miniloader/idbloader** (`MiniLoaderAll.bin` in firmware)
+   * **"Usbplug" Mode** (`rk3368_usbplug_v2.6` inside `MiniLoaderAll.bin`)
+      * These following points are speculation from what I have read, as I haven't tested it myself  
+      * Similar to MASKROM mode, but can flash individual partitions
+      * Should be accessible through MASKROM mode; open AndroidTool, select and configure the partition(s) you want to flash and make sure to select `Loader` and set its path to your `MiniLoaderAll.bin`. Device will boot into that miniloader's Usbplug mode and flash the partitions
+   * Finds and loads Uboot. It's possibly it may first search for it on the SD Card.
+      * From experience, if Uboot is corrupted and can't be loaded, device will enter MASKROM (or usbplug?) mode.
 4. **Uboot**
-    * If the respective key combination is pressed, enters Uboot's LOADER mode or Android's recovery.
+    * If the respective key combination is pressed, enters Uboot's **LOADER mode** or Android's recovery.
     * Finds a bootable boot image in the following order:
         * SD Card
             * I couldn't manage to boot anything from an SD Card other than Uboot (and thus LOADER mode) which is enough to unbrick the device in some cases
