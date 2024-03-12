@@ -13,12 +13,25 @@ Both are built by [Incartech](http://www.incartech.com.cn/) and are pretty much 
 Hardware and blobs/drivers information can be found on the [TBT8A10 branch](https://github.com/TBT8A10/vendor/tree/tbt8a10) and [M1045W branch](https://github.com/TBT8A10/vendor/tree/m1045w) of the vendor repo.
 
 ### Special Modes
-* **MASKROM/BootROM Mode**: Allows us to flash the firmware.
+* **MASKROM/BootROM Mode**: Can flash the firmware and partitions.
 * **Uboot**: One of the bootloaders. Handles pretty much the whole boot process.
-    * **LOADER/Rockusb  Mode**: Allows us to flash partitions, firmware and dump it.
-    * **fastboot**: Useful to disable Android Verified Boot (AVB) and flash `boot`/`recovery`/`uboot` partitions. Can't flash `super`. The only way to access this mode is with `adb reboot-bootloader` or through the "Reboot to bootloader" option in recovery.
+    * **LOADER/Rockusb  Mode**: Can flash and dump partitions, and reboot into MASKROM.
+    * **fastboot**: Useful to disable Android Verified Boot (AVB) and flash `boot`/`recovery`/`uboot` partitions. Can't flash `super`. The only way to access this mode is with `adb reboot-bootloader` or through the `Reboot to bootloader` option in recovery.
 * **Recovery**:
     * **fastbootd**: Useful to check whether AVB is unlocked and flash `boot`/`recovery`/`super` (`system`, `vendor`, `odm`, `product`) partitions
+
+### Tools
+#### Rockchip Tools
+Use the following versions unless specified otherwise. Newer or older ones may not work properly.
+* **[DriverAssitant_v4.5](./Resources/Rockchip%20Tools/DriverAssitant_v4.5.7z)**: Drivers required to interact with the device while on LOADER/MASKROM mode.
+* **[AndroidTool_Release_v2.71](./Resources/Rockchip%20Tools/AndroidTool_Release_v2.71.7z)** (aka RKDevTool): Can flash firmware (LOADER/MASKROM mode), flash partitions (LOADER mode) and dump firmware (LOADER mode).
+    * **WARNING:** Before flashing partitions, load the [partition table of this device](./Resources/Rockchip%20Tools/androidtool-partition_table) (right click -> `Load Config`) or create it yourself with the output of `Dev Partition`.
+* **[FactoryTool_v1.45_bnd](./Resources/Rockchip%20Tools/FactoryTool_v1.45_bnd.7z)**: Can flash firmware. I've never needed to use it.
+* **[SD_Firmware_Tool._v1.46](./Resources/Rockchip%20Tools/SD_Firmware_Tool._v1.46.7z)**: Can flash firmware to an SD Card.
+#### Other Tools
+* [imgRePackerRK](https://forum.xda-developers.com/t/tool-imgrepackerrk-rockchips-firmware-images-unpacker-packer.2257331/): Unpack/repack Rockchip firmware and partition images.
+* [rkDumper](https://forum.xda-developers.com/t/tool-rkdumper-utility-for-backup-firmware-of-rockchips-devices.2915363/): Dump firmware through LOADER mode
+* [adbDumper](https://forum.xda-developers.com/t/tool-adbdumper-utility-for-backup-firmware-of-android-devices.4525721/): Dump firmware through ADB (root required)
 
 ### Key combinations
 * With the tablet OFF:
@@ -35,19 +48,15 @@ Hardware and blobs/drivers information can be found on the [TBT8A10 branch](http
    * Searches bootable firmware on the eMMC and maybe on the SD Card too.
    * If none is found, enters **MASKROM mode**.
       * According to Rockchip, we can force enter it by "shorting the eMMC clock to GND" (basically, prevent eMMC from being read so no firmware can be found and loaded)
-      * Some devices include two testpoints next to the eMMC that can be used to do this. I haven't dissasembled mine so no idea if we have them
+      * Some devices include two testpoints next to the eMMC that can be used to do this. I disassembled mine and it doesn't seem to have them.
 3. **miniloader/idbloader** (`MiniLoaderAll.bin` in firmware)
-   * **"Usbplug" Mode** (`rk3368_usbplug_v2.6` inside `MiniLoaderAll.bin`)
-      * These following points are speculation from what I have read, as I haven't tested it myself  
-      * Similar to MASKROM mode, but can flash individual partitions
-      * Should be accessible through MASKROM mode; open AndroidTool, select and configure the partition(s) you want to flash and make sure to select `Loader` and set its path to your `MiniLoaderAll.bin`. Device will boot into that miniloader's Usbplug mode and flash the partitions
-   * Finds and loads Uboot. It's possibly it may first search for it on the SD Card.
-      * From experience, if Uboot is corrupted and can't be loaded, device will enter MASKROM (or usbplug?) mode.
+   * **"Usbplug" Mode** (`rk3368_usbplug_v2.6` inside `MiniLoaderAll.bin`) 
+      * Helper of MASKROM mode. This mode is entered when flashing firmware or partitions in MASKROM.
+   * Finds and loads Uboot. It's likely it may first search for it on the SD Card
 4. **Uboot**
     * If the respective key combination is pressed, enters Uboot's **LOADER mode** or Android's recovery.
     * Finds a bootable boot image in the following order:
         * SD Card
-            * I couldn't manage to boot anything from an SD Card other than Uboot (and thus LOADER mode) which is enough to unbrick the device in some cases
         * eMMC
         * USB Device (untested)
     * Loads resources from boot image (DTB, logo...)
@@ -56,18 +65,19 @@ Hardware and blobs/drivers information can be found on the [TBT8A10 branch](http
     * Boots the image
 5. **Linux Kernel** (`boot` or `recovery`)
 
-### Tools
-#### Rockchip Tools
-Use the following versions unless specified otherwise. Newer or older ones may not work properly.
-* **[DriverAssitant_v4.5](./Resources/Rockchip%20Tools/DriverAssitant_v4.5.7z)**: Drivers required to interact with the device while on LOADER/MASKROM mode.
-* **[AndroidTool_Release_v2.71](./Resources/Rockchip%20Tools/AndroidTool_Release_v2.71.7z)** (aka RKDevTool): Can flash firmware (LOADER/MASKROM mode), flash partitions (LOADER mode) and dump firmware (LOADER mode).
-    * **WARNING:** Before flashing partitions, load the [partition table of this device](./Resources/Rockchip%20Tools/androidtool-partition_table) (right click -> `Load Config`) or create it yourself with the output of `Dev Partition`.
-* **[FactoryTool_v1.45_bnd](./Resources/Rockchip%20Tools/FactoryTool_v1.45_bnd.7z)**: Can flash firmware. I've never needed to use it.
-* **[SD_Firmware_Tool._v1.46](./Resources/Rockchip%20Tools/SD_Firmware_Tool._v1.46.7z)**: Can flash firmware to an SD Card.
-#### Other Tools
-* [imgRePackerRK](https://forum.xda-developers.com/t/tool-imgrepackerrk-rockchips-firmware-images-unpacker-packer.2257331/): Unpack/repack Rockchip firmware and partition images.
-* [rkDumper](https://forum.xda-developers.com/t/tool-rkdumper-utility-for-backup-firmware-of-rockchips-devices.2915363/): Dump firmware through LOADER mode
-* [adbDumper](https://forum.xda-developers.com/t/tool-adbdumper-utility-for-backup-firmware-of-android-devices.4525721/): Dump firmware through ADB (root required)
+### Unbrick
+1. Open AndroidTool and load the partition table of our device
+2. If your device can't enter LOADER or MASKROM mode you have two options:
+   * Force MASKROM Mode by shorting the eMMC (no idea on how to do this)
+   * Try to enter MASKROM/LOADER by booting from an SD Card.
+      * If your uboot is broken for some reason, this can perfectly unbrick your device
+      1. Connect SD Card to the computer & flash stock firmware to it using Rockchip's SD_Firmware_Tool
+      3. Insert card into Tablet
+      4. Try to reboot into LOADER mode. Device should enter it or enter MASKROM.
+3. Once in MASKROM or LOADER, either:
+    * Flash the corrupted partition(s)
+       * If you are on MASKROM mode, you'll also need to flash the miniloader into the first partition (`Loader`) so the device can boot into Usbplug Mode.
+    * Reflash stock firmware (Upgrade firmware tab)
 
 ### Firmware
 Official TBT8A10 firmware is available on [Google Drive](https://drive.google.com/file/d/12YQDCDvujEDlx5ZTQb0ChDukXJs9QSd6/view?usp=drive_link) (September 13, 2021 build).
@@ -113,28 +123,6 @@ I'm 90% sure the bootloader comes unlocked out of the box, but we can't flash `b
 6) Now recovery's fastbootd should report device's unlocked when executing `fastboot getvar unlocked`
 
 To re-enable AVB, `fastboot oem at-lock-vboot` may do the trick (untested).
-
-### Unbrick
-**Soft-brick**: Uboot works and we can get into LOADER mode
-1. Boot into LOADER mode.
-2. Open AndroidTool
-3. Two options:
-    * Flash the corrupted partition
-    * Reflash stock firmware (Upgrade firmware tab)
-
-**Hard-brick**: Can't get into LOADER mode
-* Device boots into **MASKROM Mode**:
-    * Flash stock firmware with AndroidTool
-* Device doesn't show any signs of life:
-    * Supposedly we can force MASKROM Mode by shorting the eMMC (I don't know how to do this)
-    * It's possible that you may be able to boot from an SD Card.
-        1. Connect SD Card to the computer & flash stock firmware to it using Rockchip's SD_Firmware_Tool
-        3. Insert Card into Tablet
-        4. Reboot tablet. It should now show ENACOM logo.
-        5. Try to boot into LOADER Mode. It will either boot into MASKROM or LOADER, it doesn't matter.
-        6. Flash stock firmware normally
-        7. Tablet will reboot and show ENACOM Logo. Disconnect SD Card and reboot.
-        8. Tablet will boot into recovery, perform factory reset (wipe /data, /cache, etc.) and reboot into system.
 
 ______
 ## Customizing the tablet
