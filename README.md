@@ -141,42 +141,7 @@ Additionally, it contains a "second" file (unpack with [AIK](https://forum.xda-d
 I've extracted the DTS from both devices and cleaned it using my [Python script](https://github.com/TBM13/dts_cleaner) to make it more readable. They are available on the [resources folder](./Resources/).
 
 ### Building TWRP
-I managed to build TWRP using Rockchip's device tree (had to make a lot of modifications and quick hacks) and the stock prebuilt kernel. It loads enough to make ADB work but the recovery itself crashes due to some graphic-related errors.
-<details>
-<summary>View log</summary>
-
-```
-Starting TWRP 3.7.0_11-0-063d211c on Sun Jan 29 23:41:48 2023
- (pid 151)
-TW_NO_BATT_PERCENT := true
-TW_NO_USB_STORAGE := true
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-I:Found brightness file at '/sys/devices/platform/backlight/backlight/backlight/brightness'
-I:Got max brightness 255 from '/sys/devices/platform/backlight/backlight/backlight/max_brightness'
-I:TWFunc::Set_Brightness: Setting brightness control to 255
-I:TW_EXCLUDE_ENCRYPTED_BACKUPS := true
-I:LANG: en
-Starting the UI...
-setting DRM_FORMAT_RGBX8888 and GGL_PIXEL_FORMAT_RGBX_8888
-setting DRM_FORMAT_XBGR8888 and GGL_PIXEL_FORMAT_RGBA_8888
-mmap() failed: Invalid argument
-setting DRM_FORMAT_XBGR8888 and GGL_PIXEL_FORMAT_RGBA_8888
-mmap() failed: Invalid argument
-Forcing pixel format: RGB_565
-failed to put force_rgb_565 fb0 info: Invalid argument
-I:TWFunc::Set_Brightness: Setting brightness control to 255
-TW_SCREEN_BLANK_ON_BOOT := true
-I:Loading package: splash (/twres/splash.xml)
-I:Load XML directly
-I:PageManager::LoadFileToBuffer loading filename: '/twres/splash.xml' directly
-I:Checking resolution...
-libc: Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 151 (recovery), pid 151 (recovery)
-libc: Unable to set property "ro.twrp.boot" to "1": error code: 0xb
-libc: Unable to set property "ro.twrp.version" to "3.7.0_11-0": error code: 0xb
-```
-</details>
-
-If those issues can't be fixed, an alternative could be to disable the UI and control it through ADB.
+I managed to boot a [modified TWRP](https://github.com/TBT8A10/android_bootable_recovery) using Rockchip's RK3368A device tree with some modifications. It has some issues, so more information will be given soon.
 
 Meanwhile, I made some modifications to the stock recovery to make it more comfortable. More information on the [recovery repo](https://github.com/TBT8A10/recovery).
 
