@@ -141,9 +141,7 @@ Additionally, it contains a "second" file (unpack with [AIK](https://forum.xda-d
 I've extracted the DTS from both devices and cleaned it using my [Python script](https://github.com/TBM13/dts_cleaner) to make it more readable. They are available on the [resources folder](./Resources/).
 
 ### Building TWRP
-I managed to boot a [modified TWRP](https://github.com/TBT8A10/android_bootable_recovery) using Rockchip's RK3368A device tree with some modifications. It has some issues, so more information will be given soon.
-
-Meanwhile, I made some modifications to the stock recovery to make it more comfortable. More information on the [recovery repo](https://github.com/TBT8A10/recovery).
+Information available on the [device tree repo (twrp-11 branch)](https://github.com/TBT8A10/android_device_rockchip_rk3368a/tree/twrp-11).
 
 ### Building AOSP
 This should be possible using Rockchip's device trees. However, the tablet supports Project Treble and GSIs work fine.
