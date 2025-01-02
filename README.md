@@ -153,10 +153,11 @@ The kernel is built for arm64, but the vendor uses 32-bit binaries. Thus, only `
 * Android 12 or higher doesn't boot due to issues with the GPU Driver and SkiaGL
     * This can be easily fixed by updating the GPU driver blobs, particularly two of them (the other ones are already up to date).
     * You can find [them here](./Resources/android12-skiagl-fix/). Their version is `UM S 5.59` and were grabbed from [this repo](https://github.com/khadas/android_vendor_rockchip_common/tree/khadas-edge2-android12/gpu/libG6110/G6110_64/vendor/lib/hw).
+* Video codecs and playback doesn't seem to work on Android 12 and higher
 * Headphone jack doesn't work properly on old PHH GSIs. This is fixed on TrebleDroid 13.
-* Bluetooth doesn't work on TrebleDroid 14.
+* Bluetooth doesn't work on TrebleDroid 14 and higher
 * Boot animation doesn't work. This is fixed on TrebleDroid 14.
 * WiFi may not work on the first boot. If that's the case, try rebooting a few times and turning it on and off.
 * HDMI may not work (never tested it)
 * Performance is terrible. The UI is very laggy and unresponsive. The stock ROM also suffers from this but it's less noticeable there.
-   * It's suggested to disable animations in Developer Settings (set all animation scales to zero). Decreasing the DPI also seems to help
+   * Disabling animations in Developer Settings (set all animation scales to zero) and decreasing the DPI seems to help
