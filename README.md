@@ -134,6 +134,10 @@ Information available on the [U-Boot repo](https://github.com/TBT8A10/u-boot).
 ### Building Android Kernel
 As of now, I wasn't able to boot a kernel built by me; it freezes at an early stage. This may not be feasible due to all the changes Incar has made to Rockchip's kernel.
 
+### Building Kernel Modules
+The stock kernel has support for Modules. This means it's possible to add custom drivers for external hardware connected through OTG, like an USB Wifi Adapter.
+More info in the [Kernel repo](https://github.com/TBT8A10/kernel).
+
 ### DTB & Enacom Logo
 The boot image contains a DTB just like most Android devices. However, that one is not used. \
 Additionally, it contains a "second" file (unpack with [AIK](https://forum.xda-developers.com/t/tool-android-image-kitchen-unpack-repack-kernel-ramdisk-win-android-linux-mac.2073775/) and it will be inside the `split_img` folder) which can be unpacked/repacked with imgRePackerRK. Inside it is the real DTB and the ENACOM splash screen bitmap.
