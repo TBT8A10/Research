@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<MediaCodecs>
+    <Decoders>
+        <MediaCodec name="c2.rk.avc.decoder" type="video/avc">
+            <Limit name="size" min="2x2" max="4096x2160" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="block-count" range="1-32768" /> <!-- max 4096x2160 -->
+            <Limit name="blocks-per-second" range="1-1966080" />
+            <Limit name="frame-rate" range="1-60" />
+            <Limit name="bitrate" range="1-20000000" />
+            <Feature name="adaptive-playback" />
+            <Limit name="concurrent-instances" max="32" />
+            <Limit name="performance-point-3840x2160" value="30" />
+        </MediaCodec>
+        <MediaCodec name="c2.rk.hevc.decoder" type="video/hevc">
+            <Limit name="size" min="2x2" max="4096x2160" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="block-count" range="1-32768" /> <!-- max 4096x2160 -->
+            <Limit name="blocks-per-second" range="1-1966080" />
+            <Limit name="frame-rate" range="1-60" />
+            <Limit name="bitrate" range="1-20000000" />
+            <Feature name="adaptive-playback" />
+            <Limit name="concurrent-instances" max="32" />
+            <Limit name="performance-point-3840x2160" value="60" />
+        </MediaCodec>
+        <MediaCodec name="c2.rk.vp8.decoder" type="video/x-vnd.on2.vp8">
+            <Limit name="size" min="2x2" max="1920x1088" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="block-count" range="1-8160" /> <!-- max 1920x1088 -->
+            <Limit name="blocks-per-second" range="1-489600" />
+            <Limit name="frame-rate" range="1-60" />
+            <Limit name="bitrate" range="1-20000000" />
+            <Feature name="adaptive-playback" />
+            <Limit name="concurrent-instances" max="32" />
+            <Limit name="performance-point-1920x1088" value="60" />
+        </MediaCodec>
+        <MediaCodec name="c2.rk.mpeg2.decoder" type="video/mpeg2">
+            <Limit name="size" min="2x2" max="1920x1088" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="block-count" range="1-8160" /> <!-- max 1920x1088 -->
+            <Limit name="blocks-per-second" range="1-489600" />
+            <Limit name="frame-rate" range="1-60" />
+            <Feature name="adaptive-playback" />
+            <Limit name="concurrent-instances" max="32" />
+            <Limit name="performance-point-1920x1088" value="60" />
+        </MediaCodec>
+        <MediaCodec name="c2.rk.m4v.decoder" type="video/mp4v-es">
+            <Limit name="size" min="2x2" max="1920x1088" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="block-count" range="1-8160" /> <!-- max 1920x1088 -->
+            <Limit name="blocks-per-second" range="1-489600" />
+            <Limit name="frame-rate" range="1-60" />
+            <Limit name="bitrate" range="1-20000000" />
+            <Feature name="adaptive-playback" />
+            <Limit name="concurrent-instances" max="32" />
+            <Limit name="performance-point-1920x1088" value="60" />
+        </MediaCodec>
+        <MediaCodec name="c2.rk.h263.decoder" type="video/3gpp">
+            <Limit name="size" min="2x2" max="1920x1088" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="block-count" range="1-8160" /> <!-- max 1920x1088 -->
+            <Limit name="blocks-per-second" range="1-489600" />
+            <Limit name="frame-rate" range="1-60" />
+            <Limit name="bitrate" range="1-20000000" />
+            <Feature name="adaptive-playback" />
+            <Limit name="concurrent-instances" max="6" />
+            <Limit name="performance-point-1920x1088" value="60" />
+        </MediaCodec>
+    </Decoders>
+
+    <Encoders>
+        <MediaCodec name="c2.rk.avc.encoder" type="video/avc">
+            <Limit name="size" min="176x144" max="1920x1088" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="block-count" range="1-8160" /> <!-- max 1920x1080 -->
+            <Limit name="blocks-per-second" range="1-489600" />
+            <Limit name="bitrate" range="1-10000000" />
+            <Feature name="can-swap-width-height" />
+            <Limit name="concurrent-instances" max="32" />
+            <Limit name="performance-point-1920x1088" value="30" />
+        </MediaCodec>
+    </Encoders>
+    <Include href="media_codecs_google_c2.xml" />
+</MediaCodecs>
